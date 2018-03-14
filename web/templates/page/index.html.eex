@@ -1,0 +1,29 @@
+ <div id="shop-app">
+        <div>
+        <input v-model ="searchbycountry" placeholder="Filter by store"/>
+        </div>
+    <div class="table-responsive-md" >
+    <table class="table table-striped" >
+     <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Image</th>
+      <th scope="col">price</th>
+      <th scope="col">Country</th>
+      <th scope="col">Description</th>
+      <th scope="col">Available</th>
+    </tr>
+     </thead>
+     <tbody>
+    <tr v-for="country in findbycountry" :key="country.id">
+      <th scope="row">{{ country.name }}</th>
+       <td> <img :src= "country.image"/> </td>  
+       <td> {{ country.price }} {{ country.currency }} </td>
+      <td> {{ country.store }} </td>
+      <td> {{ country.description }} </td> 
+      <td> {{ country.instock }} </td>
+    </tr>
+     </tbody>
+    </table>
+    </div> 
+    </div>
