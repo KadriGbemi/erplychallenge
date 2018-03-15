@@ -1,8 +1,21 @@
  <div id="shop-app">
-        <div>
-        <input v-model ="searchbycountry" placeholder="Filter by store"/>
+  <div class="container">
+       <p>Size {{ getCartSize()}}</p>
+       <pre>{{ cart}}</pre>
+     <h2> Instock </h2>
+          <div class="row">
+          <div>
+          <div class="col-lg-4"  v-for="country in findbycountry" :key="country.id">
+            <img class="rounded-circle" :src= "country.image" alt="Generic placeholder image" width="140" height="140">
+            <h2> {{ country.name }}</h2>
+            <p>{{ country.description }}</p>
+            <p><a class="btn btn-secondary" v-on:click="addtocart(country)" role="button">Add to cart &raquo;</a></p> 
+                     <p><a class="btn btn-secondary" v-on:click="removefromcart(country)" role="button">Remove from cart &raquo;</a></p> 
+
+          </div>
+          </div>
         </div>
-    <div class="table-responsive-md" >
+  <!--   <div class="table-responsive-md" >
     <table class="table table-striped" >
      <thead>
     <tr>
@@ -12,6 +25,7 @@
       <th scope="col">Country</th>
       <th scope="col">Description</th>
       <th scope="col">Available</th>
+      <th scope="col">Add</th>
     </tr>
      </thead>
      <tbody>
@@ -21,9 +35,10 @@
        <td> {{ country.price }} {{ country.currency }} </td>
       <td> {{ country.store }} </td>
       <td> {{ country.description }} </td> 
-      <td> {{ country.instock }} </td>
+     <td> {{ country.instock }} </td>
+       <td> <button> Add to Cart</button </td>
     </tr>
      </tbody>
     </table>
-    </div> 
+    </div> -->
     </div>
