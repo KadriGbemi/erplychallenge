@@ -1,0 +1,263 @@
+$responsive-800: "only screen and (max-width: 800px)";
+
+$responsive-1000: "only screen and (min-width: 800px) and (max-width: 1000px)";
+
+$responsive-1300: "only screen and (min-width: 1001px) and (max-width: 1300px)";
+
+$responsive-2500: "only screen and (min-width: 1301px) and (max-width: 2500px)";
+
+@mixin border-radius($radius){
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -border-radius: $radius;
+}
+
+.row{
+    width: 100%;
+}
+
+#shop-app{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+h1,
+h2 {
+  font-weight: normal;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin: 0 0px;
+}
+
+.paginate-list {
+  margin: 0px auto;
+  width: 107%;
+  margin-left: -40px;
+  li {
+      margin-right:0px; 
+    &:before {
+      content: ' ';
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  }
+}
+
+.paginate-links{
+    li {
+        display: inline-block;
+        margin: 0 10px;
+      }
+      width: 110%;
+      text-align: center;
+}
+.paginate-links.items {
+  user-select: none;
+  a {
+    cursor: pointer;
+  }
+  li.active a {
+    font-weight: bold;
+  }
+  li.next:before {
+    content: ' | ';
+    margin-right: 13px;
+    color: #ddd;
+  }
+  li.disabled a {
+    color: #ccc;
+    cursor: no-drop;
+  }
+}
+
+a {
+  color: #2b6981;
+}
+
+button{
+    i {
+        font-size: 30px;
+        color: #007bff;
+        padding: 5.5%;
+        margin: 0%;
+        border: 1px solid #2d86e6;
+        @include border-radius(5px);
+    }
+
+    :active {
+        border: 0px;
+        padding: 0%;
+        margin: 0;
+        opacity: 1;
+        transition: 0s
+    }
+    :visited{
+        border: 0px;
+        padding: 0%;
+    }
+    margin: 0%;
+    right: 5%;
+}
+
+
+ul {
+    button{
+        margin-left: 30%;
+        margin-right: -5em;
+        background-color: #fff;   
+        font-size: 30px;
+    }
+}
+
+.centertext{
+    h2{
+        text-align: center;
+        margin-left: 45px;
+    }
+}
+
+@media #{$responsive-800}{
+    ul {
+        button{
+            margin-left: 0%;
+            margin-right: 0em;
+        }
+    }
+}
+
+@media #{$responsive-1000}{
+    ul {
+        button{
+            margin-left: 0%;
+            margin-right: 0em;
+        }
+    }
+}
+
+@media #{$responsive-1300}{
+    ul {
+        button{
+            right: 0%;
+            margin-left: 35.3%;
+        }
+    }
+
+    .paginate-list {
+        margin: 0px auto;
+        display: block;
+        width: 100%;
+        margin-left: -40px;
+        li {
+            margin-right:30px; 
+            float: left;
+            
+          &:before {
+            content: ' ';
+            font-weight: bold;
+            margin-top: 10px;
+          }
+        }
+      }
+}
+
+@media #{$responsive-2500}{
+    ul {
+        button{
+            margin-left: 51%;
+            margin-right: 0em;
+        }
+    }
+}
+
+.navigation{
+    background-color:#fff;
+    a{
+        color: #007bff;
+    }
+}
+.inputsearch{
+    margin-left: auto;
+    margin-right: auto;
+}
+.searchitem{
+    padding: 10px;
+    width: 200px;
+    border: 1px solid lighten(#000, 40%);
+    @include border-radius(5px);
+    box-shadow: 0 0 10px rgba(#2d86e6, .3);
+}
+.modal-mask {
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    display: table;
+    transition: opacity .3s ease;
+  }
+  
+  .modal-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  .modal-container {
+    width: 300px;
+    margin: 0px auto;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+    transition: all .3s ease;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  
+  .modal-header h3 {
+    margin-top: 0;
+    color: #42b983;
+  }
+  
+  .modal-body {
+    margin: 20px 0;
+  }
+  
+  .modal-default-button {
+    float: right;
+  }
+  
+  /*
+   * The following styles are auto-applied to elements with
+   * transition="modal" when their visibility is toggled
+   * by Vue.js.
+   *
+   * You can easily play with the modal transition by editing
+   * these styles.
+   */
+  
+  .modal-enter {
+    opacity: 0;
+  }
+  
+  .modal-leave-active {
+    opacity: 0;
+  }
+  
+  .modal-enter .modal-container,
+  .modal-leave-active .modal-container {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  
