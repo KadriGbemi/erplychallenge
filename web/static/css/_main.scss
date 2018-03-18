@@ -43,13 +43,17 @@ li {
   margin: 0px auto;
   width: 107%;
   margin-left: -40px;
-  li {
-      margin-right:0px; 
+  text-align: center;
+  li { 
     &:before {
       content: ' ';
       font-weight: bold;
       margin-top: 10px;
     }
+  }
+
+  li{
+    width: 33%;
   }
 }
 
@@ -58,7 +62,7 @@ li {
         display: inline-block;
         margin: 0 10px;
       }
-      width: 110%;
+      width: 100%;
       text-align: center;
 }
 .paginate-links.items {
@@ -119,6 +123,33 @@ ul {
     }
 }
 
+.menlist{
+    
+    .row{
+        width: 100%;
+    }
+}
+
+.card {
+    a {
+        margin-top: 10%;
+        margin-right:3%;
+        margin-left: 3%;
+    }
+    img {
+        margin-top: inherit;
+    }
+    margin: 0%;
+    margin-left: -6%;
+    margin-right: -6%;
+}
+
+.container{
+      .nav{
+            float: center;
+            margin-left: 30%;
+        }
+}
 .centertext{
     h2{
         text-align: center;
@@ -156,11 +187,10 @@ ul {
         margin: 0px auto;
         display: block;
         width: 100%;
-        margin-left: -40px;
         li {
             margin-right:30px; 
             float: left;
-            
+            margin: 0%;
           &:before {
             content: ' ';
             font-weight: bold;

@@ -15,6 +15,7 @@ var product = new Vue({
     data: {
         errors: [],
         cart: [],
+        layout: 'categorylist',
         item: '',
         currentitem:{},
         searchbycountry: "",
