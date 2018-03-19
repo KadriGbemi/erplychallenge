@@ -21,33 +21,44 @@
 
 <div class="tab-content">
       <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
-
 <div class="container">
 <nav class="nav">
-  <a class="nav-link active" href="#"  v-bind:class="{ 'active': layout == 'categorylist'}" v-on:click="layout = 'categorylist'" >Men</a>
+  <a class="nav-link active" href="#direct"  v-bind:class="{ 'active': layout == 'categorylist'}" v-on:click="layout = 'categorylist'" >Men</a>
   <a class="nav-link" href="#" v-bind:class="{ 'active': layout == 'categorywomen'}" v-on:click="layout = 'categorywomen'">Women</a>
   <a class="nav-link" href="#">Link</a>
   <a class="nav-link disabled" href="#">Disabled</a>
 </nav>
-
+ <div id="direct" class="centertext">
+               <a class="nav-link" href="#" v-bind:class="{ 'active': layout == 'categorywomen'}" v-on:click="layout = 'categorywomen'"> <h4>Items in Stock liknk</h4> </a>
+                
+        <p> Size of all product in cart {{ getCartSize()}}</p>
+       <ul v-for="item in cart" >
+        <li> Names of items in a cart {{ item.product.name }}</li>
+        <li> Quantity of items in a cart {{ item.quantity }} </li>
+        </ul>
+                
+                </div>
   <div class="row">
         <div class="col-lg-12">
   
 <div v-if="layout == 'categorylist'" class="menlist">
-    <div class="row">
+
+
+<div> 
           <div class="col-lg-12">
                 <div class="centertext">
                 <h2>Items in Stock</h2>
                 </div>
+                
             <paginate-links for="itemsdata" :limit="10 " :show-step-links="true"></paginate-links>
-              <paginate-links for="itemsdata" :limit="15" :show-step-links="20"> </paginate-links>
+              <paginate-links for="itemsdata" :limit="15" :show-step-links="true"> </paginate-links>
               <paginate-links for="itemsdata" :simple="{
                     next: 'Next »',
                     prev: '« Back'
                   }"></paginate-links>
                   <paginate name="itemsdata" 
                   :list="itemsdata"
-                  :per="9" class="paginate-list">
+                  :per="4" class="paginate-list">
                     <li v-for="item in paginated('itemsdata')">
                     <div class="row">
                       <div class="col-lg-12">
@@ -56,13 +67,21 @@
                                     <a href=""><img class="rounded-circle" :src= "item.image" alt="Generic placeholder image" width="150" height="150"/></a>
                                         <div class="card-body">
                                             <h4 class="card-title">
+                            
                                               <a href="">{{ item.name }}</a>
                                             </h4>
                                             <h5>{{ item.price }}</h5>
+                                    <button v-on:click="show = !show">  Product  </button> 
+                                    <a class="btn btn-secondary" id="messages" v-on:click="addtocart(item)" role="button">Add to cart &raquo;</a>
                                           <p class="card-text" style="font-size:10px;">{{ item.description }}</p>
                                         </div>
                                         <div class="card-footer">
                                           <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                           <div v-if= "show">
+                                        <p> {{ item.name }} </p>
+                                        <p> {{ item.price }} </p>
+                                        </div>
+                                        </transition
                                         </div>
                                   </div>
                               </div>
@@ -70,42 +89,28 @@
                         </div>
                       <div>    
                     </li>
+                   
                   </paginate>
+            </div>
+
+            
             </div>
           </div>
         </div>
     </div>
+  
 </div>
       <div v-if="layout == 'categorywomen'" class="womenlist">
-
-      What is Lorem Ipsum?
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          <transition> 
+                                        
       <div>
+
       <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
       <input type = "text" class="searchitem" v-model="searchbycountry" value="search" placeholder="Find items by country"/> 
       </div>
     <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
-    <div class="row">
-        <div class="col-lg-6">
-          <h2>Modern Business Features</h2>
-          <p>The Modern Business template by Start Bootstrap includes:</p>
-          <ul>
-            <li>
-              <strong>Bootstrap v4</strong>
-            </li>
-            <li>jQuery</li>
-            <li>Font Awesome</li>
-            <li>Working contact form with validation</li>
-            <li>Unstyled page elements for easy customization</li>
-          </ul>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
-        </div>
-        <div class="col-lg-6">
-          <img class="img-fluid rounded" src="http://placehold.it/700x450" alt="">
-        </div>
-      </div>
-  </div>
+   
     </div>
 
 </div>

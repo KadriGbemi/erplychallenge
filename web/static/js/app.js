@@ -21,7 +21,10 @@ var product = new Vue({
         searchbycountry: "",
         showModal: false,
         itemsdata: [],
-        paginate: ['itemsdata']
+        recentitem:[],
+        paginate: ['itemsdata'],
+        show: true,
+        isEditing: true
     },
     computed: {
         findbycountry: function () {
@@ -32,7 +35,7 @@ var product = new Vue({
                 return b.name - a.name;
             }) 
             return orderbycountry;
-            },    
+            }
     }, 
         mounted: function () {
              this.load();
@@ -86,7 +89,12 @@ var product = new Vue({
                     product.itemsdata = (response.data);
                     itemsdata = product.itemsdata;
                     return itemsdata; 
-               console.log("See items", itemsdata[0])
+
+                   console.log("See items", itemsdata)
+                   var recentitem = this.product.itemsdata;
+                   return recentitem;
+
+                   
                })
                .catch(function (error){
                     product.errors.push(error);
