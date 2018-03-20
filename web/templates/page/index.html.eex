@@ -1,20 +1,34 @@
 <div id= "shop-app">
-<transition name="fade">
-      <div v-if="!seen" class="cartdisplay">
-      <button type="button" class="btn btn-light">
-      <i class="fa fa-shopping-cart" aria-hidden="true" id="show-modal" @click="showModal = true"> {{ getCartSize() }} </i> 
-      </button>
-      <p> Size of all product in cart {{ getCartSize()}}</p>
-       <ul v-for="item in cart" >
-        <li> {{ item.product.name }}</li>
-        <li> Quantity {{ item.quantity }} </li>
-        </ul>          
-      
+<transition name="fade" class="table-responsive-md">
+      <div v-if="seen" class="cartdisplay">
+       <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Product</th>
+      <th scope="col">quantity</th>
+      <th scope="col">Add</th>
+      <th scope="col">Remove</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody  v-for="item in cart">
+    <tr>
+      <th> <img :src= "item.product.image" alt="Generic placeholder image" style="width: 50px; height: 50px;"/> <p> {{ item.product.name }} </p></th>
+      <td > <p> {{ item.quantity }} </p> </td>
+      <td> <button type="button" class="btn btn-primary" v-on:click="item.quantity += 1">+ </button> </td>
+      <td> <button class="btn btn-primary" type="button" v-on:click="removeonefromcart(item)">- </button> </td>
+      <td><p>{{ item.product.price }} {{ item.product.currency }}</p></td>
+    </tr>
 
-      <button v-on:click="seen = !seen"> <i class="fa fa-close" aria-hidden="true"> </i> </button>
+    <td colspan="3"><p>Total</p></td>
+    <td><p>{{ carttotal }}</p></td>
+    <td> <button class="btn btn-primary" type="button" v-on:click="removeallfromcart(item)"> Clear cart </button> {{ output }} </td>
+  </tbody>
+</table>
+<button type="button" class="btn btn-dark" v-on:click="seen = !seen"> <i class="fa fa-stylish-close" aria-hidden="true"> </i> </button>
       </div>
       </transition>
-     
+      
   <div class="navigation">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
@@ -111,9 +125,9 @@
                                            <transition>
                                         <p class="info-style"> 
                                         <strong> Name: </strong> {{ item.name }} <br/> <br/>
-                                       <strong> About: </strong> {{ item.description }} <br/> <br/>
-                                     <strong> Store: </strong> {{ item.store }} <br/> <br/>
-                                     <strong> Deparment: </strong> {{ item.department }} <br/> <br/>
+                                        <strong> About: </strong> {{ item.description }} <br/> <br/>
+                                        <strong> Store: </strong> {{ item.store }} <br/> <br/>
+                                       <strong> Deparment: </strong> {{ item.department }} <br/> <br/>
                                      <strong> Price: </strong> {{ item.price }} {{ item.currency}} <br/> <br/>
                                      <strong> Instock: </strong> {{ item.instock }} <br/><br/>
                                       

@@ -175,7 +175,7 @@ ul {
         width: 50%;
         overflow: hidden;
         z-index: 2;
-        background-color: #d0d7df;
+        background-color: rgba(0, 123, 255, 0.33);
     button {
         right: 0%;
         top: 0%;
@@ -198,9 +198,15 @@ ul {
         li{
         width: 50%;
         top: 20%;
-        font-size: 5%;
+        font-size: 50%;
         text-align: center;
+        color: #fff;
         }
+    }
+    p{
+        font-size: 20px;
+        font-weight: bold;
+        color: #fff;
     }
 
 }

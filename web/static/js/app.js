@@ -16,7 +16,8 @@ var product = new Vue({
         errors: [],
         cart: [],
         layout: 'categorylist',
-        item: '',
+        oneitem: '',
+        output: '',
         search: '',
         currentitem:{},
         searchbycountry: "",
@@ -37,7 +38,16 @@ var product = new Vue({
                 return b.name - a.name;
             }) 
             return orderbycountry;
-            }
+            },
+            carttotal: function (){ 
+               
+              let carttotal =  this.currentitem;
+              var total = 0;             
+                for(var i = 0; i < this.carttotal.length; i++) {
+                    total += this.carttotal[i].price;
+                }
+                return carttotal;
+              },
      }, 
         mounted: function () {
              this.load();
@@ -65,25 +75,21 @@ var product = new Vue({
                removeallfromcart:function(items){
                 this.currentitem = items;
                 var allofcart = this.cart.splice(this.cart.indexOf(items),1);
-                //this.cart = [];
-                alert("Your cart is empty");
+                   return alert("Your cart will be empty");
                },
-               removeonefromcart: function(items){
-                this.currentitem = items;
-                var available = false;
-                var oneitem = {product:items, quantity: 1}
-                var eachitem = this.cart.forEach(cartitem=>{
-                    if (cartitem.product.id == items.id){
-                        cartitem.quantity--;
-                        available = true;
-                        console.log("First", cartitem.quantity);
-                        if (cartitem.quantity < 0 || cartitem.quantity == 0) {
-                            var output = "Product removed";
-                            cartitem.quantity = output;
-                        }
+
+            removeonefromcart: function(item) {
+                this.recentitem = item;
+                if (item.quantity > 0){
+                    item.quantity -=1;
+                }
+                    if(cart.length === 0){
+                    {
+                    var output="Your cart is empty";
+                    return alert("Your cart will be empty");
                     }
-                });
-               },
+                }
+            },
             load: function () { 
                 var product = this;
                 axios.get('https://erply-challenge.herokuapp.com/list?AUTH=fae7b9f6-6363-45a1-a9c9-3def2dae206d')
