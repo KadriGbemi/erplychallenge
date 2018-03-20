@@ -17,6 +17,7 @@ var product = new Vue({
         cart: [],
         layout: 'categorylist',
         item: '',
+        search: '',
         currentitem:{},
         searchbycountry: "",
         showModal: false,
@@ -24,7 +25,8 @@ var product = new Vue({
         recentitem:[],
         paginate: ['itemsdata'],
         show: true,
-        isEditing: true
+        seen: true
+    
     },
     computed: {
         findbycountry: function () {
@@ -36,7 +38,7 @@ var product = new Vue({
             }) 
             return orderbycountry;
             }
-    }, 
+     }, 
         mounted: function () {
              this.load();
         },
