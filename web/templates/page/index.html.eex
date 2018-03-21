@@ -17,9 +17,9 @@
           <th> <img :src= "item.product.image" alt="Generic placeholder image" style="width: 50px; height: 50px;"/> 
           <p> {{ item.product.name }} </p>
           </th>
-          <td > <p> {{ item.quantity }} </p> </td>
-          <td> <button id="add" type="button" class="btn btn-primary" v-on:click="item.quantity += 1">+ </button> 
-          <button id="reduce" class="btn btn-primary" type="button" v-on:click="removeonefromcart(item)">- </button> </td>
+          <td> <p> {{ item.quantity }} </p> </td>
+          <td> <button id="add" type="button" class="btn btn-primary" v-on:click="increaseitem(item)">+ </button> 
+          <button id="reduce" class="btn btn-primary" type="button"  v-on:click="reduceitem(item)">- </button> </td>
           <td> 
           <p>{{ item.product.price }} {{ item.product.currency }}</p> </td>
           <td> <p> {{ item.product.price * item.quantity }}  {{ item.product.currency }}</p> </td>
@@ -113,7 +113,7 @@
                   }"></paginate-links>
                   
                   <paginate name="itemsdata" 
-                  :list="itemsdata"
+                  :list="filteredItems"
                   :per="4" class="paginate-list">
                     <li v-for="item in paginated('itemsdata')">
                     <div class="row">
