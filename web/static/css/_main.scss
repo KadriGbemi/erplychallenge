@@ -6,7 +6,7 @@ $responsive-600: "only screen and (min-width: 481px) and (max-width: 650px)";
 
 $responsive-800: "only screen and (min-width: 651px) and (max-width: 800px)";
 
-$responsive-1000: "only screen and (min-width: 800px) and (max-width: 1000px)";
+$responsive-1000: "only screen and (min-width: 801px) and (max-width: 1000px)";
 
 $responsive-1200: "only screen and (min-width: 1001px) and (max-width: 1200px)";
 
@@ -185,8 +185,8 @@ ul {
         height: 100em;
         float: right;
         position: fixed;
-        width: 50%;
         overflow: hidden;
+        width: 50%;
         z-index: 2;
         background-color: rgba(0, 123, 255, 0.51);
     button {
@@ -260,14 +260,29 @@ ul {
 
 
 @media #{$responsive-374}{
+    .nav-tabs .nav-item{
+        width: 19%;
+    }
     .paginate-list {
         margin-left: 3.5%; 
         li{
-            width: 100%;
+            width: 90%;
             text-align: center;
-            left: 2%;
+            margin-left: 14%;
         }
-        
+        h4{
+            font-size: 1.1rem;
+            margin-left: -189px;
+            margin-top: -9px;
+        }
+
+        h5{
+            font-size: 1.25rem;
+            margin-top: 22px;
+        }
+        p{
+            font-size: 17px;
+        }
     }
     ul {
         button{
@@ -275,9 +290,17 @@ ul {
             right: 0%;
             float: right;
             position: absolute;
+            font-size: 10px;
+            height: 2.0em;
         }
     }
-
+    .paginate-links{
+        width: -10%;
+        font-size: 2em;
+        li{
+            margin: 3%;
+        }      
+    }
    .navigation{
             button i {
             margin-left: -5px;
@@ -285,6 +308,15 @@ ul {
         }
     }
 
+    .navigation ul button{
+        height: 2.0em;
+    }
+    .carousel{
+        height:206px;
+        .img{
+            height:206px;
+        }
+    }
     .cartdisplay{
         right: -7%;
             top: 0%;
@@ -316,36 +348,288 @@ ul {
     
     ul {
         li{
-        width: 50%;
+        width: 0%;
         top: 20%;
-        font-size: 5%;
+        font-size: 10px;
         text-align: center;
     }
-}
+    }
+    .cartdisplay{
+        right: 0%;
+            top: 0%;
+            bottom: 0%;
+            height: 100em;
+            float: right;
+            position: fixed;
+            width: 100%;
+            overflow: hidden;
+            z-index: 2;
+            background-color: rgba(0, 123, 255, 0.51);
+        button {
+            right: 0%;
+            top: 0%;
+            float: right;
+        }
+    
+        .button {
+          i {  
+            color: #fff;
+            }
+        }
+    
+        ul {
+            width: 100%;
+            top: 20%;
+            text-align: center;
+        }
+        
+        ul {
+            li{
+            width: 50%;
+            top: 20%;
+            font-size: 50%;
+            text-align: center;
+            color: #fff;
+            }
+        }
+        p{
+            font-size: 10px;
+            font-weight: 400;
+            margin: 4px;
+            color: #fff;
+        }
+        .table td, .table th{
+            font-size: 9px;
+        }
+        .table{
+            margin-top: 1rem;
+        }
+    
+        #add{
+            font-size: 5px;
+        }
+        #reduce{
+            font-size: 5px;
+        }
+        #remove{
+            font-size: 5px;
+        }
+        
+    }
+    #paybutton{
+        font-size: 10px;
+    }
+    #clearbutton{
+        font-size: 10px;
+    }
+    #closebutton{
+        right: 89%;
+    }
+    .carousel{
+        margin-bottom: 7%;
+       img { 
+           height: 214px;
+       }
+    }
+
+    .card-footer{
+        margin-top: 12px;
+    }
 }
 
 
 @media #{$responsive-480}{
+    .nav-tabs .nav-item{
+        width: 19%;
+    }
     .paginate-list {
-        margin-left: 0.5%; 
+        margin-left: 3.5%; 
         li{
-            width: 90%;
+            width: 100%;
             text-align: center;
-            left: 0%;
+            left: 2%;
         }
-        
+        h4{
+            font-size: 1.2rem;
+            margin-left: -227px;
+            margin-top: -12px;
+        }
+
+        h5{
+            font-size: 1.25rem;
+            margin-top: 22px;
+        }
+        p{
+            font-size: 17px;
+        }
     }
     ul {
         button{
+            width: 45px;
             right: 0%;
             float: right;
             position: absolute;
-            width: 15%;
+            font-size: 10px;
+            height: 2.0em;
         }
+    }
+    .paginate-links{
+        width: -10%;
+        font-size: 2em;
+        li{
+            margin: 3%;
+        }      
+    }
+   .navigation{
+            button i {
+            margin-left: -5px;
+            margin-right: 0.5%;
+        }
+    }
+
+    .navigation ul button{
+        height: 2.0em;
+    }
+    .carousel{
+        height:206px;
+        .img{
+            height:206px;
+        }
+    }
+    .cartdisplay{
+        right: -7%;
+            top: 0%;
+            bottom: 0%;
+            height: 50em;
+            float: right;
+            position: fixed;
+            width: 25%;
+            overflow: hidden;
+            background-color: #2c3e50;
+        button {
+            right: 0%;
+            top: 0%;
+            float: right;
+        }
+    
+        .button {
+          i {  
+            color: #fff;
+            }
+        }
+    }
+
+    ul {
+        width: 100%;
+        top: 20%;
+        text-align: center;
+    }
+    
+    ul {
+        li{
+        width: 0%;
+        top: 20%;
+        font-size: 10px;
+        text-align: center;
+    }
+    }
+    .cartdisplay{
+        right: 0%;
+            top: 0%;
+            bottom: 0%;
+            height: 100em;
+            float: right;
+            position: fixed;
+            width: 100%;
+            overflow: hidden;
+            z-index: 2;
+            background-color: rgba(0, 123, 255, 0.51);
+        button {
+            right: 0%;
+            top: 0%;
+            float: right;
+        }
+    
+        .button {
+          i {  
+            color: #fff;
+            }
+        }
+    
+        ul {
+            width: 100%;
+            top: 20%;
+            text-align: center;
+        }
+        
+        ul {
+            li{
+            width: 50%;
+            top: 20%;
+            font-size: 50%;
+            text-align: center;
+            color: #fff;
+            }
+        }
+        p{
+            font-size: 10px;
+            font-weight: 400;
+            margin: 4px;
+            color: #fff;
+        }
+        .table td, .table th{
+            font-size: 9px;
+        }
+        .table{
+            margin-top: 1rem;
+        }
+    
+        #add{
+            font-size: 5px;
+        }
+        #reduce{
+            font-size: 5px;
+        }
+        #remove{
+            font-size: 5px;
+        }
+        
+    }
+    #paybutton{
+        font-size: 10px;
+    }
+    #clearbutton{
+        font-size: 10px;
+    }
+    #closebutton{
+        right: 89%;
+    }
+    .carousel{
+        margin-bottom: 7%;
+       img { 
+           height: 214px;
+       }
+    }
+
+    .card-footer{
+        margin-top: 12px;
     }
 }
 
 @media #{$responsive-600}{
+    body{
+        overflow-x: hidden
+    }
+
+    h4{
+        font-size: 1.3rem;
+        margin-left: -292px;
+        margin-top:-10px;
+    }
+    #cartbutton{
+        font-size: 13px;
+        width: 47px;
+    }
     .paginate-list {
         margin-left: 0.5%; 
         li{
@@ -353,7 +637,12 @@ ul {
             text-align: center;
             left: 0%;
         }
-        
+        .p {
+            margin-top: 15px;
+        }
+        h5{
+            margin-top: 43px;
+        }
     }
     ul {
         button{
@@ -362,15 +651,92 @@ ul {
             position: absolute;
         }
     }
+
+.card-footer{
+    margin-top:17px;
+}
+    
+.cartdisplay{
+    right: 0%;
+        top: 0%;
+        bottom: 0%;
+        height: 100em;
+        float: right;
+        position: fixed;
+        width: 50%;
+        overflow: hidden;
+        z-index: 2;
+        background-color: rgba(0, 123, 255, 0.51);
+    button {
+        right: 0%;
+        top: 0%;
+        float: right;
+    }
+
+    .button {
+      i {  
+        color: #fff;
+        }
+    }
+
+    ul {
+        width: 100%;
+        top: 20%;
+        text-align: center;
+    }
+    
+    ul {
+        li{
+        width: 50%;
+        top: 20%;
+        font-size: 50%;
+        text-align: center;
+        color: #fff;
+        }
+    }
+    p{
+        font-size: 10px;
+        font-weight: 400;
+        margin: 4px;
+        color: #fff;
+    }
+    .table td, .table th{
+        font-size: 9px;
+    }
+    .table{
+        margin-top: 1rem;
+    }
+
+    #add{
+        font-size: 5px;
+    }
+    #reduce{
+        font-size: 5px;
+    }
+    #remove{
+        font-size: 5px;
+    }
+    
+}
+#paybutton{
+    font-size: 10px;
+}
+#clearbutton{
+    font-size: 10px;
+}
+#closebutton{
+    right: 89%;
+}
 }
 
 @media #{$responsive-800}{
     .paginate-list {
         margin-left: 18.5%; 
         li{
-            width: 79%;
+            width: 90%;
             text-align: center;
-            left: 35%;
+            margin-left: 8%;
+            right: 3%;
         }
         
     }
@@ -380,6 +746,25 @@ ul {
             margin-right: 0em;
         }
     }
+
+    .carousel{
+        margin-bottom: 7%;
+       img { 
+           height: 425px;
+       }
+    }
+
+    .cartdisplay{
+        width: 100%;
+    }
+
+    #closebutton {
+        right: 95%;
+    }
+    .row{
+        margin-left: -10px;
+    }
+
 }
 
 @media #{$responsive-1000}{
@@ -432,15 +817,16 @@ ul {
        }
 
        .cartdisplay{
-        right: -7%;
-            top: 0%;
-            bottom: 0%;
-            height: 100em;
-            float: right;
-            position: absolute;
-            width: 23%;
-            overflow: hidden;
-            background-color: #d0d7df;
+        right: 0%;
+        top: 0%;
+        bottom: 0%;
+        height: 100em;
+        float: right;
+        position: fixed;
+        overflow: hidden;
+        width: 50%;
+        z-index: 2;
+        background-color: rgba(0, 123, 255, 0.51);
         button {
             right: 0%;
             top: 0%;
