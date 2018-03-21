@@ -6,29 +6,41 @@
     <tr>
       <th scope="col">Product</th>
       <th scope="col">quantity</th>
-      <th scope="col">Add</th>
-      <th scope="col">Remove</th>
+      <th scope="col">Add/Reduce</th>
       <th scope="col">Price</th>
+      <th scope="col">Total</th>
+      <th scope="col">Remove</th>
     </tr>
   </thead>
   <tbody  v-for="item in cart">
-    <tr>
-      <th> <img :src= "item.product.image" alt="Generic placeholder image" style="width: 50px; height: 50px;"/> <p> {{ item.product.name }} </p></th>
+    <tr v-show="cart.length > 0">
+      <th> <img :src= "item.product.image" alt="Generic placeholder image" style="width: 50px; height: 50px;"/> 
+      <p> {{ item.product.name }} </p>
+      </th>
       <td > <p> {{ item.quantity }} </p> </td>
-      <td> <button type="button" class="btn btn-primary" v-on:click="item.quantity += 1">+ </button> </td>
-      <td> <button class="btn btn-primary" type="button" v-on:click="removeonefromcart(item)">- </button> </td>
-      <td><p>{{ item.product.price }} {{ item.product.currency }}</p></td>
-    </tr>
-
-    <td colspan="3"><p>Total</p></td>
-    <td><p>{{ carttotal }}</p></td>
-    <td> <button class="btn btn-primary" type="button" v-on:click="removeallfromcart(item)"> Clear cart </button> {{ output }} </td>
+      <td> <button type="button" class="btn btn-primary" v-on:click="item.quantity += 1">+ </button> 
+      <button class="btn btn-primary" type="button" v-on:click="removeonefromcart(item)">- </button> </td>
+      <td> 
+      <p>{{ item.product.price }} {{ item.product.currency }}</p> </td>
+      <td> <p> {{ item.product.price * item.quantity }}  {{ item.product.currency }}</p> </td>
+      <td> <button class="btn btn-primary" type="button" v-on:click="removeonefromcart(item)"> Remove item </button> </td>
+    <div v-show="cart.length === 0">
+      <p>Your cart is empty!</p>
+    </div>
+   </tr>
   </tbody>
+
+  <hr/>
+  <p style="color: #fff"> Total Price: {{ carttotal() }} </p>
 </table>
-<button type="button" class="btn btn-dark" v-on:click="seen = !seen"> <i class="fa fa-stylish-close" aria-hidden="true"> </i> </button>
-      </div>
-      </transition>
-      
+
+  <button id="paybutton" class="btn btn-primary" type="button"> Buy </button> 
+<button id="clearbutton" class="btn btn-primary" type="button" v-on:click="removeallfromcart(item)"> Clear cart </button> 
+<button id="closebutton" type="button" class="btn btn-primary" v-on:click="seen = !seen"> <i class="fa fa-close" aria-hidden="true" style="color: white"> </i>  </button>
+
+</div>
+ </transition>
+
   <div class="navigation">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
@@ -37,8 +49,6 @@
             <li class="nav-item">
               <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">All</a>
             </li>
-            <input type = "text" class="searchitem" v-model="searchbycountry" value="search" placeholder="Find items by country"/> 
-
             <button type="button" class="btn btn-light" v-on:click="seen = !seen">
                 <i class="fa fa-shopping-cart" aria-hidden="true" id="show-modal" @click="showModal = true"> {{ getCartSize() }} </i> 
             </button>
@@ -89,19 +99,19 @@
     <span class="sr-only">Next</span>
   </a>
 </div>      
-     
-<div class="container">
-<div class="row">
-          <div class="col-lg-12">
 
+<div class="container" >
+  <div class="row">
+          <div class="col-lg-12">
+           <input type = "text" class="searchitem" value="search" v-model="searchbycountry" placeholder="Find items by country"/>  
                 <div class="centertext">
                 <h2>Items in Stock</h2>
-                </div>
             <paginate-links for="itemsdata" :limit="10 " :show-step-links="true"></paginate-links>
               <paginate-links for="itemsdata" :simple="{
                     next: 'Next »',
                     prev: '« Back'
                   }"></paginate-links>
+                  
                   <paginate name="itemsdata" 
                   :list="itemsdata"
                   :per="4" class="paginate-list">
@@ -126,7 +136,7 @@
                                         <p class="info-style"> 
                                         <strong> Name: </strong> {{ item.name }} <br/> <br/>
                                         <strong> About: </strong> {{ item.description }} <br/> <br/>
-                                        <strong> Store: </strong> {{ item.store }} <br/> <br/>
+                                        <strong> Store: </strong> {{ item.store  }} <br/> <br/>
                                        <strong> Deparment: </strong> {{ item.department }} <br/> <br/>
                                      <strong> Price: </strong> {{ item.price }} {{ item.currency}} <br/> <br/>
                                      <strong> Instock: </strong> {{ item.instock }} <br/><br/>
@@ -153,10 +163,12 @@
           </div>
         </div>
   </div>
-  
+  </div>
+
 </div>
 
-      <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab"> 
 
-      </div>
+<div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab"> 
+
+</div>
 </div>

@@ -49,7 +49,9 @@ $responsive-1270: "only screen and (min-width: 1201px) and (max-width: 1270px)";
   text-align: center;
 }
 
-
+.table{
+    margin-top: 43px;
+}
 h4 {
         margin-left: -31%; 
 } 
@@ -96,11 +98,22 @@ ul {
       width: 100%;
       text-align: center;
 }
-
+#closebutton {
+    position: absolute;
+    right: 94%;
+    top: 0%;
+    float: left;
+}
+#paybutton{
+    right: 94%;
+    top: 20%;
+    float: left;
+}
 .paginate-links.items {
     user-select: none;
     a {
       cursor: pointer;
+
     }
     li.active a {
       font-weight: bold;
@@ -169,13 +182,13 @@ ul {
     right: 0%;
         top: 0%;
         bottom: 0%;
-        height: 50em;
+        height: 100em;
         float: right;
         position: fixed;
         width: 50%;
         overflow: hidden;
         z-index: 2;
-        background-color: rgba(0, 123, 255, 0.33);
+        background-color: rgba(0, 123, 255, 0.51);
     button {
         right: 0%;
         top: 0%;
@@ -510,58 +523,4 @@ width: 200px;
 border: 1px solid lighten(#007bff, 40%);
 @include border-radius(3px);
 box-shadow: 0 0 3px rgba(#2d86e6, .3);
-}
-.modal-mask {
-position: fixed;
-z-index: 9998;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background-color: rgba(0, 0, 0, .5);
-display: table;
-transition: opacity .3s ease;
-}
-
-.modal-wrapper {
-display: table-cell;
-vertical-align: middle;
-}
-
-.modal-container {
-width: 300px;
-margin: 0px auto;
-padding: 20px 30px;
-background-color: #fff;
-border-radius: 2px;
-box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
-transition: all .3s ease;
-font-family: Helvetica, Arial, sans-serif;
-}
-
-.modal-header h3 {
-margin-top: 0;
-color: #42b983;
-}
-
-.modal-body {
-margin: 20px 0;
-}
-
-.modal-default-button {
-float: right;
-}  
-
-.modal-enter {
-opacity: 0;
-}
-
-.modal-leave-active {
-opacity: 0;
-}
-
-.modal-enter .modal-container,
-.modal-leave-active .modal-container {
--webkit-transform: scale(1.1);
-transform: scale(1.1);
 }
