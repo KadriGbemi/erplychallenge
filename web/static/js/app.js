@@ -72,7 +72,7 @@ var product = new Vue({
             },
             increaseitem: function(item){
                     this.increaseitem = item;
-                    var reduce = item.quantity += 1;              
+                    var increase = item.quantity += 1;              
                     this.saveCart();                  
             },
             reduceitem: function(item){
