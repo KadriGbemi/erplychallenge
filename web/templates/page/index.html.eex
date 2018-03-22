@@ -18,7 +18,7 @@
           <p> {{ item.product.name }} </p>
           </th>
           <td> <p> {{ item.quantity }} </p> </td>
-          <td> <button id="add" type="button" class="btn btn-primary" v-on:click="increaseitem(item)">+ </button> 
+          <td> <button id="add" type="button" class="btn btn-primary" v-on:click=" item.quantity += 1">+ </button> 
           <button id="reduce" class="btn btn-primary" type="button"  v-on:click="reduceitem(item)">- </button> </td>
           <td> 
           <p>{{ item.product.price }} {{ item.product.currency }}</p> </td>
